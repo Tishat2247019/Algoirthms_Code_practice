@@ -14,6 +14,23 @@ void displayGraph(int **m, int s)
     cout << endl;
 }
 
+void outdegreeCount(int **m, int s, int *a)
+{
+    for (int i = 0; i < s; i++)
+    {
+        for (int j = 0; j < s; j++)
+        {
+            if (m[i][j] != 0)
+            {
+                a[i] = a[i] + 1;
+                ;
+            }
+        }
+        cout << "Outdegree of vertex " << i << " is : " << a[i] << endl;
+    }
+    cout << endl;
+}
+
 int main()
 {
 
@@ -44,6 +61,16 @@ int main()
     }
 
     displayGraph(graph, vertex);
+
+    int indegree[edge];
+    int outdegree[edge];
+
+    for (int i = 0; i < edge; i++)
+    {
+        outdegree[i] = 0;
+    }
+
+    outdegreeCount(graph, vertex, outdegree);
 
     return 0;
 }
